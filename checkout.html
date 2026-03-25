@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial; text-align: center; background: #f5f5f5; }
+    h1 { background: black; color: white; padding: 15px; }
+    input, button { padding: 10px; margin: 10px 0; width: 80%; max-width: 400px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: black; color: white; border: none; cursor: pointer; }
+    button:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+<h1>Checkout 🛒</h1>
+
+<form action="https://formspree.io/f/YOUR-ID" method="POST" onsubmit="fillCart()">
+  <input type="text" name="name" placeholder="Your Name" required><br>
+  <input type="text" name="phone" placeholder="Phone Number" required><br>
+  <input type="text" name="address" placeholder="Delivery Address" required><br>
+  <input type="hidden" name="order" id="orderData">
+  <button type="submit">Place Order ✅</button>
+</form>
+
+<a href="cart.html">⬅ Back to Cart</a>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function fillCart() {
+  // Convert cart items into text for email
+  let orderText = cart.map(item => item.name + " (৳" + item.price + ")").join(", ");
+  document.getElementById("orderData").value = orderText;
+}
+</script>
+
+</body>
+</html>
