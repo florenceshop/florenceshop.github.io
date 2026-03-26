@@ -1,126 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Red Lingerie</title>
+  
+  <!-- CSS for gallery and buttons -->
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
+      text-align: center;
       background: #f5f5f5;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      background: white;
       padding: 20px;
-      border-radius: 10px;
-      max-width: 900px;
-      margin: auto;
     }
 
-    .left {
-      flex: 1 1 40%;
-    }
-
-    .right {
-      flex: 1 1 55%;
-    }
-
-    .main-img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .thumbs {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .thumbs img {
-      width: 70px;
-      cursor: pointer;
-      border-radius: 5px;
-      border: 2px solid transparent;
-      transition: border 0.2s;
-    }
-
-    .thumbs img:hover {
-      border: 2px solid orange;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
+    h1 {
+      color: #d10000;
       margin-bottom: 10px;
     }
 
-    .price {
-      font-size: 22px;
-      color: orange;
-      margin: 10px 0;
+    .product-gallery {
+      margin: 20px 0;
     }
 
-    .btn {
-      padding: 15px 25px;
-      background: orange;
+    .big-image {
+      width: 300px;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .thumbnails img {
+      width: 60px;
+      height: auto;
+      margin: 5px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      transition: transform 0.2s;
+    }
+
+    .thumbnails img:hover {
+      transform: scale(1.1);
+      border-color: black;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      background-color: #d10000;
       color: white;
       border: none;
-      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
       cursor: pointer;
-      border-radius: 5px;
+      font-size: 16px;
+      transition: background 0.2s;
     }
 
-    .btn:hover {
-      background: darkorange;
+    .buttons button:hover {
+      background-color: #a30000;
+    }
+
+    .description {
+      max-width: 400px;
+      margin: 10px auto 20px auto;
+      font-size: 16px;
+      color: #333;
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+  <h1>Red Lingerie</h1>
+  <p class="description">Elegant and comfortable red lingerie set. Available in multiple sizes. Perfect for special occasions or everyday confidence.</p>
 
-  <!-- LEFT SIDE: Images -->
-  <div class="left">
-    <img id="mainImage" src="images/redbra1.jpeg" class="main-img">
+  <!-- Product Gallery -->
+  <div class="product-gallery">
+    <!-- Main big image -->
+    <img id="main-image" src="images/redbra1.jpeg" alt="Red Lingerie" class="big-image">
 
-    <div class="thumbs">
-      <img src="images/redbra1.jpeg" onclick="changeImage(this)">
-      <img src="images/redbra2.jpeg" onclick="changeImage(this)">
-      <img src="images/redbra3.jpeg" onclick="changeImage(this)">
-      <img src="images/redbra4.jpeg" onclick="changeImage(this)">
-      <img src="images/redbra5.jpeg" onclick="changeImage(this)">
-      <img src="images/redbra6.jpeg" onclick="changeImage(this)">
+    <!-- Thumbnails -->
+    <div class="thumbnails">
+      <img src="images/redbra1.jpeg" alt="Red Lingerie 1" onclick="changeImage(this)">
+      <img src="images/redbra2.jpeg" alt="Red Lingerie 2" onclick="changeImage(this)">
+      <img src="images/redbra3.jpeg" alt="Red Lingerie 3" onclick="changeImage(this)">
+      <img src="images/redbra4.jpeg" alt="Red Lingerie 4" onclick="changeImage(this)">
+      <img src="images/redbra5.jpeg" alt="Red Lingerie 5" onclick="changeImage(this)">
+      <img src="images/redbra6.jpeg" alt="Red Lingerie 6" onclick="changeImage(this)">
     </div>
   </div>
 
-  <!-- RIGHT SIDE: Product Info -->
-  <div class="right">
-    <div class="title">Red Lingerie Set</div>
-    <div class="price">৳1200</div>
-    <p>Comfortable, stylish, and premium quality lingerie.</p>
-
-    <button class="btn" onclick="orderNow()">Order Now</button>
+  <!-- Add to Cart / Checkout -->
+  <div class="buttons">
+    <button>Add to Cart</button>
+    <button>Checkout</button>
   </div>
 
-</div>
-
-<script>
-  // Change main image when thumbnail clicked
-  function changeImage(element) {
-    document.getElementById("mainImage").src = element.src;
-  }
-
-  // WhatsApp order button
-  function orderNow() {
-    window.open("https://wa.me/880YOURNUMBER?text=I want to order Red Lingerie");
-  }
-</script>
+  <!-- JS to change main image when thumbnail clicked -->
+  <script>
+    function changeImage(element) {
+      document.getElementById('main-image').src = element.src;
+    }
+  </script>
 
 </body>
 </html>
