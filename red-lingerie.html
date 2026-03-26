@@ -4,7 +4,7 @@
   <title>Red Lingerie</title>
   <style>
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
       background: #f5f5f5;
@@ -12,18 +12,21 @@
 
     .container {
       display: flex;
+      flex-wrap: wrap;
       gap: 30px;
       background: white;
       padding: 20px;
       border-radius: 10px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .left {
-      width: 40%;
+      flex: 1 1 40%;
     }
 
     .right {
-      width: 60%;
+      flex: 1 1 55%;
     }
 
     .main-img {
@@ -42,6 +45,7 @@
       cursor: pointer;
       border-radius: 5px;
       border: 2px solid transparent;
+      transition: border 0.2s;
     }
 
     .thumbs img:hover {
@@ -51,6 +55,7 @@
     .title {
       font-size: 24px;
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .price {
@@ -79,7 +84,7 @@
 
 <div class="container">
 
-  <!-- LEFT SIDE -->
+  <!-- LEFT SIDE: Images -->
   <div class="left">
     <img id="mainImage" src="images/redbra1.jpeg" class="main-img">
 
@@ -90,13 +95,11 @@
     </div>
   </div>
 
-  <!-- RIGHT SIDE -->
+  <!-- RIGHT SIDE: Product Info -->
   <div class="right">
     <div class="title">Red Lingerie Set</div>
-
     <div class="price">৳1200</div>
-
-    <p>Comfortable, stylish and premium quality lingerie.</p>
+    <p>Comfortable, stylish, and premium quality lingerie.</p>
 
     <button class="btn" onclick="orderNow()">Order Now</button>
   </div>
@@ -104,10 +107,12 @@
 </div>
 
 <script>
+  // Change main image when thumbnail clicked
   function changeImage(element) {
     document.getElementById("mainImage").src = element.src;
   }
 
+  // WhatsApp order button
   function orderNow() {
     window.open("https://wa.me/880YOURNUMBER?text=I want to order Red Lingerie");
   }
